@@ -53,6 +53,8 @@ img {
   display: block;
   width: 100%;
   height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 button,
@@ -255,8 +257,9 @@ main {
 }
 
 .hero-figure img {
-  object-fit: cover;
-  aspect-ratio: 3 / 4.25;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   filter: saturate(0.9) contrast(1.04);
   transform: scale(1.01);
 }
@@ -295,8 +298,9 @@ main {
 .profile-image img,
 .discipline-figure img,
 .final-image img {
-  aspect-ratio: 4 / 5.2;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   transition: transform var(--transition), filter var(--transition);
 }
 
@@ -339,6 +343,34 @@ main {
 .education-layout {
   display: grid;
   gap: 2rem;
+}
+
+.curated-grid,
+.extra-gallery {
+  display: grid;
+  gap: 1rem;
+}
+
+.curated-item,
+.extra-item {
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--bg-soft);
+  box-shadow: 0 18px 36px rgba(19, 19, 17, 0.08);
+}
+
+.curated-item img,
+.extra-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform var(--transition), filter var(--transition);
+}
+
+.curated-item:hover img,
+.extra-item:hover img {
+  transform: scale(1.02);
+  filter: saturate(1.05);
 }
 
 .form-copy h2,
@@ -491,7 +523,9 @@ main {
 }
 
 .final-image img {
-  aspect-ratio: 4 / 3.4;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .contact-copy h2 {
@@ -683,7 +717,9 @@ main {
   .profile-image img,
   .discipline-figure img,
   .final-image img {
-    aspect-ratio: 4 / 4.9;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }
 
@@ -747,6 +783,23 @@ main {
   .form-layout {
     grid-template-columns: 0.9fr 1.1fr;
     align-items: end;
+  }
+
+  .curated-grid {
+    grid-template-columns: 1.2fr 0.8fr 0.8fr;
+    align-items: end;
+  }
+
+  .curated-item.tall {
+    grid-row: span 2;
+  }
+
+  .curated-item.wide {
+    grid-column: 2 / -1;
+  }
+
+  .extra-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .editorial-layout {

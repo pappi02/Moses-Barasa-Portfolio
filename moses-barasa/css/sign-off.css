@@ -1,0 +1,78 @@
+/* The developer's sign-off, matching the portfolio footer. */
+.sign-off {
+  justify-self: start;
+  margin-top: 0.75rem;
+  --sign-off-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--sign-off-muted);
+  transition: color 0.3s ease;
+}
+
+.sign-off--dark {
+  --sign-off-accent: #d4ff24;
+  --sign-off-muted: #9aa3b2;
+  --sign-off-fg: #f3f5f8;
+}
+
+.sign-off--light {
+  --sign-off-accent: #1558c9;
+  --sign-off-muted: #545b67;
+  --sign-off-fg: #030407;
+}
+
+.sign-off:hover,
+.sign-off:focus-visible {
+  color: var(--sign-off-fg);
+}
+
+.sign-off:focus-visible {
+  outline: 2px solid var(--sign-off-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.sign-off__symbol {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  background-color: var(--sign-off-accent);
+  -webkit-mask: url("../images/am-symbol.svg") center / contain no-repeat;
+  mask: url("../images/am-symbol.svg") center / contain no-repeat;
+  transition: transform 0.5s var(--sign-off-ease);
+}
+
+.sign-off:hover .sign-off__symbol,
+.sign-off:focus-visible .sign-off__symbol {
+  transform: rotate(60deg) scale(1.1);
+}
+
+/* An underline that draws in from the left on hover. */
+.sign-off__name {
+  font-weight: 500;
+  color: var(--sign-off-fg);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.3s var(--sign-off-ease);
+}
+
+.sign-off:hover .sign-off__name,
+.sign-off:focus-visible .sign-off__name {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sign-off__symbol,
+  .sign-off__name {
+    transition: none;
+  }
+}
